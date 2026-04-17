@@ -8,11 +8,10 @@ export async function generateStaticParams() {
 }
 
 type PositionDetailsPageProps = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 };
 
-export default function PositionDetailsPage({ params }: PositionDetailsPageProps) {
-  return <PositionDetailsClient slug={params.slug} />;
+export default async function PositionDetailsPage({ params }: PositionDetailsPageProps) {
+  const { slug } = await params;
+  return <PositionDetailsClient slug={slug} />;
 }
