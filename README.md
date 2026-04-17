@@ -48,3 +48,7 @@ Modern, minimalist salary transparency frontend built with Next.js (App Router),
 - Guest-entered salary history is persisted in localStorage and included in averages/search results
 - Reusable UI components live in `components/ui`
 - Responsive tables use horizontal scroll on small screens
+
+## Release
+
+- Deployed site: https://doxa56.github.io/maasatlas/
