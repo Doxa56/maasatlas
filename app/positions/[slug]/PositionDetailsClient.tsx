@@ -193,9 +193,9 @@ export default function PositionDetailsClient({ slug }: PositionDetailsClientPro
         </div>
 
         <div>
-          <h2 className="mb-3 text-lg font-semibold text-ink">Girilen Maaş Kayıtları</h2>
+          <h2 className="mb-3 text-lg font-semibold text-ink">Girilen Yan Haklar</h2>
           {enteredSalaryRows.length === 0 ? (
-            <p className="text-sm text-[#6a645c]">Bu pozisyon için henüz kullanıcı maaş kaydı girilmedi.</p>
+            <p className="text-sm text-[#6a645c]">Bu pozisyon için henüz kullanıcı yan hak kaydı girilmedi.</p>
           ) : (
             <div className="table-wrap">
               <table>
@@ -204,7 +204,6 @@ export default function PositionDetailsClient({ slug }: PositionDetailsClientPro
                     <th>Şirket</th>
                     <th>Şehir</th>
                     <th>Tarih Aralığı</th>
-                    <th>Maaş</th>
                     <th>Yan Haklar</th>
                   </tr>
                 </thead>
@@ -214,7 +213,6 @@ export default function PositionDetailsClient({ slug }: PositionDetailsClientPro
                       <td>{row.companyName}</td>
                       <td>{row.cityName}</td>
                       <td>{`${toDisplayDate(row.startDate)} - ${toDisplayDate(row.endDate)}`}</td>
-                      <td>{toCurrency(row.salary)}</td>
                       <td>{row.benefits || "-"}</td>
                     </tr>
                   ))}

@@ -1,4 +1,5 @@
 import { PositionDetails, PositionRecord, SalaryHistoryEntry } from "@/lib/types";
+import { mockSalaryHistory } from "@/lib/mock-data";
 import { fromSlug, slugify } from "@/lib/utils";
 
 const GUEST_SALARY_STORAGE_KEY = "maasatlas-guest-salary-history";
@@ -39,13 +40,13 @@ export const readGuestSalaryHistory = (): SalaryHistoryEntry[] => {
 
   const raw = window.localStorage.getItem(GUEST_SALARY_STORAGE_KEY);
   if (!raw) {
-    return [];
+    return mockSalaryHistory;
   }
 
   try {
     const parsed = JSON.parse(raw) as Partial<SalaryHistoryEntry>[];
     if (!Array.isArray(parsed)) {
-      return [];
+      return mockSalaryHistory;
     }
 
     return parsed.map((entry) => ({
@@ -59,7 +60,7 @@ export const readGuestSalaryHistory = (): SalaryHistoryEntry[] => {
       benefits: String(entry.benefits ?? ""),
     }));
   } catch {
-    return [];
+    return mockSalaryHistory;
   }
 };
 
